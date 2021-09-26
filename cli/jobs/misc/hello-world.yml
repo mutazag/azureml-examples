@@ -1,6 +1,8 @@
+$schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
 command: python -c "print('hello world')"
 environment:
   docker:
     image: python
 compute:
-  target: azureml:cpu-cluster
+  target: azureml:automl-compute
+experiment_name: cli-examples
