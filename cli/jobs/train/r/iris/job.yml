@@ -1,7 +1,7 @@
 $schema: https://azuremlschemas.azureedge.net/latest/commandJob.schema.json
 command: >
-  Rscript train.R 
-  --data_folder {inputs.iris} 
+  Rscript train.R
+  --data_folder {inputs.iris}
 code:
   local_path: src
 inputs:
@@ -14,6 +14,6 @@ environment:
     build:
       dockerfile: file:Dockerfile
 compute:
-  target: azureml:cpu-cluster
+  target: azureml:automl-compute
 experiment_name: r-iris-example
 description: Train an R model on the Iris dataset.

@@ -1,16 +1,16 @@
 library("optparse")
 parser <- OptionParser()
 parser <- add_option(parser, "--data_folder",
-                     type="character", 
-                     action="store", 
-                     default = "./data", 
+                     type="character",
+                     action="store",
+                     default = "c:/git/azureml-examples/cli/jobs/train/r/iris/data/iris.csv",
                      help="data folder")
 
 args <- parse_args(parser)
 
 cat("data folder...\n")
 print(args$data_folder)
-
+print(getwd())
 file_name = file.path(args$data_folder)
 
 cat("first 6 rows...\n")
