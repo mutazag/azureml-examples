@@ -4,16 +4,21 @@ command: >
   --data_folder {inputs.iris}
 code:
   local_path: src
+  # local_path: src
 inputs:
   iris:
-    data:
-      path: https://azuremlexamples.blob.core.windows.net/datasets/iris.csv
-    mode: mount
+    file: https://azuremlexamples.blob.core.windows.net/datasets/iris.csv
+    mode: download
+  # iris:
+  #   data:
+  #     path: https://azuremlexamples.blob.core.windows.net/datasets/iris.csv
+  #   mode: mount
 environment:
-  docker:
-    build:
-      dockerfile: file:Dockerfile
-compute:
-  target: azureml:automl-compute
+  build:
+      local_path: docker-context
+  # docker:
+  #   build:
+  #     dockerfile: file:Dockerfile
+compute: azureml:cpucluster
 experiment_name: r-iris-example
 description: Train an R model on the Iris dataset.
